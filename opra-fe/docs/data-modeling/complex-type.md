@@ -82,6 +82,62 @@ export class PhoneNumber {
 
 In this example, we construct a complex type PhoneNumber, comprising distinct fields (areaCode and phoneNumber) capable of accommodating diverse data types.
 
+### Expanding Structures in Opra
+
+In Opra, the ability to extend structures allows for the easy reuse of data across different parts of your application. By defining common data structures and extending them as needed, you can streamline your code and ensure consistency throughout your application.
+
+```jsx
+// ./record-entity.ts
+
+import { ApiField, ComplexType } from '@opra/common';
+import { Column, DataType, PrimaryKey } from '@sqb/connect';
+
+@ComplexType({
+  abstract: true,
+  description: 'Abstract Record Model'
+})
+export class Record {
+
+  @Column(DataType.INTEGER)
+  @ApiField()
+  @PrimaryKey()
+  id: number;
+
+  @Column()
+  @ApiField()
+  deleted?: boolean;
+
+}
+```
+
+Below is an example with an extend section.
+
+```jsx
+// ./customer-note.entity.ts
+
+import { ApiField, ComplexType} from '@opra/common';
+import { Column, Entity } from '@sqb/connect';
+import { Record } from './record.entity.js';
+
+@ComplexType({
+  description: 'Customer notes entity',
+})
+@Entity({tableName: 'customer_notes'})
+export class CustomerNotes extends Record {
+
+  @ApiField()
+  @Column({notNull: true, fieldName: 'customer_id'})
+  customerId: number;
+
+  @ApiField()
+  @Column({notNull: true})
+  title: string;
+
+  @ApiField()
+  @Column()
+  content: string;
+}
+```
 
 #### Conclusion
 Complex types are indispensable components within the Opra framework, empowering developers to model sophisticated data structures and relationships effectively. By leveraging complex types, developers can construct robust database schemas capable of handling diverse data requirements with finesse.
