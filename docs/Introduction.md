@@ -16,7 +16,9 @@ sidebar_position: 1
 
 ## Installation
 
-You can click ont the link below to install the OpraJS library. In this link you will find a guide that will explain the contents of the library and the requirements you need to download it.
+## Installation
+
+You can click on the link below to install the OpraJS library. In this link, you will find a guide that will explain the contents of the library and the requirements you need to download it.
 
 ```bash
 $ npm i @opra/core
