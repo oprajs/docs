@@ -28,4 +28,4 @@ Follow this link and start OpaJS [Installation](./Installation.md).
 
 #### Support us
 
-Opra is an MIT-licensed open source project. It can grow thanks to the support by these awesome people. If you'd like to join them, please read more [here](./support)
+Opra is an MIT-licensed open source project. It can grow thanks to the support by these awesome people. If you'd like to join them, please read more 
